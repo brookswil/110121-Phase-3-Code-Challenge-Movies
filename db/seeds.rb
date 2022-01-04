@@ -18,10 +18,32 @@ sporty_spice = Actor.create(name: "Melanie Chisholm")
 posh_spice = Actor.create(name: "Victoria Addams")
 
 puts "Creating roles..."
+
 # ***********************************************************
 # * TODO: create roles! Remember, a role belongs to a movie *
 # * and a role belongs to an actor.                         *
 # ***********************************************************
 # Create Roles Here
+
+# Role.create(
+#     movie_id: mean_girls,
+#     actor_id: Actor.name,
+#     character_name: 'Tina Fey',
+#     salary: 300000
+# )
+# Role.create(
+#     movie_id: spice_world,
+#     actor_id: Actor.name,
+#     character_name: 'Victoria Addams',
+#     salary: 275000
+# )
+10.times do
+    Role.create(
+        movie_id: Movie.all.sample.id,
+        actor_id: Actor.all.sample.id,
+        character_name: Faker::Name.female_first_name,
+        salary: Faker::Number.within(range: 225000..755000)
+    )
+end
 
 puts "Seeding done!"
